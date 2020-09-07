@@ -17,14 +17,8 @@
 
 #pragma once
 
-// Support different boards
-#if defined(TEENSYDUINO)
-#include <i2c_t3.h>
-#else
-#include <Wire.h>
-#endif
-
-#include <stdint.h>
+#include <Arduino.h> 
+#include <Wire.h> 
 
 typedef enum {
     GFS_250DPS = 0,
@@ -53,7 +47,6 @@ class MPU6050 {
     private:
 
         uint8_t _address;
-
         void    readAccelData(int16_t * ax, int16_t * ay, int16_t *az);
         void    readGyroData(int16_t * gx, int16_t * gy, int16_t *gz);
         void    writeByte(uint8_t subAddress, uint8_t data);
